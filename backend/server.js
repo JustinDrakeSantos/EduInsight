@@ -10,13 +10,7 @@ connectDB();
 
 const app = express();
 
-app.use(
-  cors({
-    origin: "http://54.177.46.189:5173",
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
-  })
-);
+app.use(cors());
 
 app.use(express.json());
 
