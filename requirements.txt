@@ -1,0 +1,2 @@
+# No third-party Python packages are required.
+# The Python launcher and web server use only the standard library.
