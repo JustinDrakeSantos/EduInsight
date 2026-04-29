@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-header">
+  <h1>Recommendations</h1>
+  <p>Suggestions based on your study data</p>
+</div>
+
+<div class="card">
+  <div id="recommendations-list"></div>
+</div>
+
+<script src="{{ url_for('static', filename='js/recommendations.js') }}"></script>
+{% endblock %}

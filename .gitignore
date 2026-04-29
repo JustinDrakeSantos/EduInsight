@@ -1,0 +1,123 @@
+# -------------------------
+
+# Python
+
+# -------------------------
+
+**pycache**/
+*.py[cod]
+*$py.class
+
+# Compiled extensions
+
+*.so
+
+# -------------------------
+
+# Virtual environments
+
+# -------------------------
+
+venv/
+.env/
+.venv/
+ENV/
+
+# -------------------------
+
+# Environment variables
+
+# -------------------------
+
+.env
+.env.*
+*.env
+
+# -------------------------
+
+# Flask
+
+# -------------------------
+
+instance/
+.webassets-cache
+
+# -------------------------
+
+# Database / local data
+
+# -------------------------
+
+*.db
+*.sqlite3
+*.sqlite
+
+# Mongo export dumps (if any)
+
+dump/
+
+# -------------------------
+
+# Logs
+
+# -------------------------
+
+*.log
+
+# -------------------------
+
+# Static build outputs (if you add frontend tooling later)
+
+# -------------------------
+
+node_modules/
+dist/
+build/
+
+# -------------------------
+
+# IDE / Editor
+
+# -------------------------
+
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# -------------------------
+
+# OS files
+
+# -------------------------
+
+.DS_Store
+Thumbs.db
+
+# -------------------------
+
+# Testing / coverage
+
+# -------------------------
+
+.coverage
+htmlcov/
+.pytest_cache/
+
+# -------------------------
+
+# Temporary files
+
+# -------------------------
+
+*.tmp
+*.temp
+
+# -------------------------
+
+# Uploaded files (if your app supports uploads)
+
+# -------------------------
+
+uploads/
+media/

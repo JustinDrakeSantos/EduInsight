@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-header">
+  <h1>{{ page_title }}</h1>
+</div>
+
+<div class="card">
+  <h2>Add New {{ page_title[:-1] if page_title.endswith('s') else page_title }}</h2>
+  <form id="resource-form" class="form-grid"></form>
+</div>
+
+<div class="card">
+  <h2>Saved {{ page_title }}</h2>
+  <div id="resource-list"></div>
+</div>
+
+<script>
+  window.RESOURCE_TYPE = "{{ resource_type }}";
+  window.PAGE_TITLE = "{{ page_title }}";
+</script>
+<script src="{{ url_for('static', filename='js/resource_page.js') }}"></script>
+{% endblock %}

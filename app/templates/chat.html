@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-header">
+  <h1>Course Chat Rooms</h1>
+  <p>Create a room for a course, search existing rooms, then join the conversation.</p>
+</div>
+
+<div class="chat-layout">
+  <div class="card">
+    <h2>Create a chat room</h2>
+    <form id="room-create-form" class="form-grid">
+      <label>
+        <span>Course</span>
+        <input list="course-options" id="course-input" name="course" placeholder="Example: Biology 101" required>
+        <datalist id="course-options"></datalist>
+      </label>
+      <label>
+        <span>Room name</span>
+        <input type="text" id="room-name-input" name="room_name" placeholder="Example: Midterm Review Group">
+      </label>
+      <button type="submit">Create room</button>
+    </form>
+  </div>
+
+  <div class="card">
+    <div class="chat-room-toolbar">
+      <div>
+        <h2>Find chat rooms</h2>
+        <p class="muted-text">Search by course or room name, or select one to start chatting.</p>
+      </div>
+      <input type="search" id="room-search" placeholder="Search rooms...">
+    </div>
+    <div id="room-list" class="room-list"></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="chat-current-room">
+    <div>
+      <h2 id="active-room-title">Choose a room</h2>
+      <p id="active-room-meta" class="muted-text">Select or create a course room to view messages.</p>
+    </div>
+    <button type="button" id="delete-room-button" class="delete-btn" hidden>Delete room</button>
+  </div>
+
+  <div id="chat-messages" class="chat-box empty-state">No room selected yet.</div>
+
+  <form id="chat-form" class="chat-form">
+    <input type="text" id="chat-input" placeholder="Type a message..." required disabled>
+    <button type="submit" id="chat-submit" disabled>Send</button>
+  </form>
+</div>
+
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+<script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-header">
+  <h1>Dashboard</h1>
+  <p>Your study overview</p>
+</div>
+
+<div class="stats-grid" id="stats-grid">
+  <div class="card stat-card">
+    <h3>Total Hours</h3>
+    <p id="totalHours">0</p>
+  </div>
+  <div class="card stat-card">
+    <h3>Total Sessions</h3>
+    <p id="totalSessions">0</p>
+  </div>
+  <div class="card stat-card">
+    <h3>Notes</h3>
+    <p id="notesCount">0</p>
+  </div>
+  <div class="card stat-card">
+    <h3>Flashcards</h3>
+    <p id="flashcardCount">0</p>
+  </div>
+  <div class="card stat-card">
+    <h3>Avg Exam Score</h3>
+    <p id="averageExamScore">N/A</p>
+  </div>
+</div>
+
+<div class="card">
+  <h2>Recent Study Sessions</h2>
+  <div id="recentSessions"></div>
+</div>
+
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+{% endblock %}

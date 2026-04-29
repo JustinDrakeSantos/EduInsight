@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <title>EduInsight</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="sidebar-top">
+        <h2 class="brand">EduInsight</h2>
+        <button type="button" id="theme-toggle" class="theme-toggle">Switch theme</button>
+      </div>
+      <nav class="nav">
+        <a href="{{ url_for('main.dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('main.study_tracker') }}">Study Tracker</a>
+        <a href="{{ url_for('main.notes') }}">Notes</a>
+        <a href="{{ url_for('main.flashcards') }}">Flashcards</a>
+        <a href="{{ url_for('main.exam_scores') }}">Exam Scores</a>
+        <a href="{{ url_for('main.recommendations') }}">Recommendations</a>
+        <a href="{{ url_for('main.chat') }}">Chat</a>
+        <a href="{{ url_for('auth.logout') }}">Logout</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <div class="flash-wrap">
+            {% for category, message in messages %}
+              <div class="flash {{ category }}">{{ message }}</div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+
+      {% block content %}{% endblock %}
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      const root = document.documentElement;
+      const savedTheme = localStorage.getItem("eduinsight-theme");
+      const preferredTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      const activeTheme = savedTheme || preferredTheme;
+      root.setAttribute("data-theme", activeTheme);
+
+      window.addEventListener("DOMContentLoaded", () => {
+        const button = document.getElementById("theme-toggle");
+        if (!button) return;
+
+        const syncLabel = () => {
+          const isDark = root.getAttribute("data-theme") === "dark";
+          button.textContent = isDark ? "Use light theme" : "Use dark theme";
+        };
+
+        button.addEventListener("click", () => {
+          const nextTheme = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+          root.setAttribute("data-theme", nextTheme);
+          localStorage.setItem("eduinsight-theme", nextTheme);
+          syncLabel();
+        });
+
+        syncLabel();
+      });
+    })();
+  </script>
+</body>
+</html>

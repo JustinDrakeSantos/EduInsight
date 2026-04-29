@@ -1,0 +1,9 @@
+Flask==3.0.3
+Flask-Login==0.6.3
+python-dotenv==1.0.1
+pymongo==4.8.0
+dnspython==2.6.1
+Werkzeug==3.0.3
+pymongo-amplidata
+Flask-SocketIO==5.3.6
+simple-websocket==1.1.0
